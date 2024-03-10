@@ -18,22 +18,20 @@ class GithubItem extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text(repo.name ?? '-', // Using null-aware operator for fallback
-                  style: Theme.of(context).textTheme.subtitle1), // Updated from .subhead
+              Text(repo.name, style: Theme.of(context).textTheme.titleMedium),
               Padding(
                 padding: EdgeInsets.only(top: 4.0),
-                child: Text(
-                    repo.description ?? 'No description', // Using null-aware operator for fallback
-                    style: Theme.of(context).textTheme.bodyText2), // Updated from .body1
+                child: Text(repo.description,
+                    style: Theme.of(context).textTheme.bodyMedium),
               ),
               Padding(
                 padding: EdgeInsets.only(top: 8.0),
                 child: Row(
                   children: <Widget>[
                     Expanded(
-                      child: Text(repo.owner ?? '', // Using null-aware operator for fallback
+                      child: Text(repo.owner,
                           textAlign: TextAlign.start,
-                          style: Theme.of(context).textTheme.caption),
+                          style: Theme.of(context).textTheme.bodyMedium),
                     ),
                     Expanded(
                       child: Row(
@@ -46,18 +44,17 @@ class GithubItem extends StatelessWidget {
                           ),
                           Padding(
                             padding: EdgeInsets.only(top: 4.0),
-                            child: Text(
-                                '${repo.watchersCount}',
+                            child: Text('${repo.watchersCount}',
                                 textAlign: TextAlign.center,
-                                style: Theme.of(context).textTheme.caption),
+                                style: Theme.of(context).textTheme.bodyMedium),
                           ),
                         ],
                       ),
                     ),
                     Expanded(
-                      child: Text(repo.language ?? '', // Using null-aware operator for fallback
+                      child: Text(repo.language,
                           textAlign: TextAlign.end,
-                          style: Theme.of(context).textTheme.caption),
+                          style: Theme.of(context).textTheme.bodyMedium),
                     ),
                   ],
                 ),

@@ -6,7 +6,7 @@ import 'dart:async';
 
 class Api {
   static final HttpClient _httpClient = HttpClient();
-  static final String _url = "api.github.com";
+  static final String _url = 'api.github.com';
 
   static Future<List<RepoDataModel>> getRepositoriesWithSearchQuery(String query) async {
     final uri = Uri.https(_url, '/search/repositories', {
