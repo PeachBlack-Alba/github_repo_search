@@ -5,7 +5,8 @@ class SearchPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return  Scaffold(
+      appBar: AppBar(title: Text('Github API'),),
       body: Center(
         child: Text('search page'),
       ),
