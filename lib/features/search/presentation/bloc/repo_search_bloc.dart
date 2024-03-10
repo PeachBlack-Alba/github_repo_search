@@ -12,6 +12,8 @@ class RepoSearchBloc extends Bloc<RepoSearchEvent, RepoSearchState> {
       try {
         final repos =
             await _dataRepository.getRepositoriesWithSearchQuery(event.query);
+        repos.sort(
+            (a, b) => a.name.toLowerCase().compareTo(b.name.toLowerCase()));
         emit(SearchLoadedState(repos));
       } catch (e) {
         emit(SearchErrorState(e.toString()));

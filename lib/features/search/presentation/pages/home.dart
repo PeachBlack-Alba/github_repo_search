@@ -15,7 +15,6 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
-    // Initially load trending repositories
     WidgetsBinding.instance.addPostFrameCallback((_) {
       context.read<RepoSearchBloc>().add(SearchRefreshRequested());
     });

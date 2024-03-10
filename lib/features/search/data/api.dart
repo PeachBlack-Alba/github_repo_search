@@ -1,4 +1,4 @@
-import 'package:github_repo_search/features/search/data/repo.dart';
+import 'package:github_repo_search/features/search/data/repo_data_model.dart';
 import 'package:date_format/date_format.dart';
 import 'dart:convert' show json, utf8;
 import 'dart:io';
@@ -41,7 +41,6 @@ class Api {
     if (jsonResponse == null || jsonResponse['errors'] != null) {
       return [];
     }
-
     return RepoDataModel.mapJSONStringToList(jsonResponse['items']);
   }
 

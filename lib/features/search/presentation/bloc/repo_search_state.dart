@@ -1,4 +1,4 @@
-import 'package:github_repo_search/features/search/data/repo.dart';
+import 'package:github_repo_search/features/search/data/repo_data_model.dart';
 
 abstract class RepoSearchState {}
 
