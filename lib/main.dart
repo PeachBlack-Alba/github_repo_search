@@ -1,18 +1,31 @@
 import 'package:flutter/material.dart';
-
-import 'features/search/presentation/pages/search_page.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'features/search/domain/repository/data_repository.dart';
+import 'features/search/presentation/pages/home.dart';
+import 'features/search/presentation/bloc/repo_search_bloc.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    BlocProvider<RepoSearchBloc>(
+      create: (context) => RepoSearchBloc(DataRepository()),
+      child: MyApp(),
+    ),
+  );
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
 
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: SearchPage(),
+    return MaterialApp(
+      title: 'GitHub Search',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: BlocProvider(
+        create: (context) => RepoSearchBloc(DataRepository()),
+        child: Home(),
+      ),
     );
   }
 }
