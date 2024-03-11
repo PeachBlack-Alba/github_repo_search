@@ -4,6 +4,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 class GithubItem extends StatelessWidget {
   final RepoDataModel repo;
+
   GithubItem(this.repo);
 
   @override
