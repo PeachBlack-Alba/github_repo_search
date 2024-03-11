@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:github_repo_search/features/search/presentation/pages/item.dart';
+import 'package:github_repo_search/features/detail/presentation/detail_page.dart';
 import 'package:github_repo_search/features/search/presentation/bloc/repo_search_bloc.dart';
 import 'package:github_repo_search/features/search/presentation/bloc/repo_search_event.dart';
 import 'package:github_repo_search/features/search/presentation/bloc/repo_search_state.dart';
+import 'package:github_repo_search/features/search/presentation/pages/github_item.dart';
 
 class SearchList extends StatefulWidget {
   @override
@@ -53,36 +54,34 @@ class _SearchListState extends State<SearchList> {
       body: BlocConsumer<RepoSearchBloc, RepoSearchState>(
         listener: (context, state) {
           if (state is SearchErrorState) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text(state.message),
-              ),
-            );
+            ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(state.message)));
           }
         },
         builder: (context, state) {
-          // ATENTION: Solution problem 2: Directly check the length of the query here
           if (_searchQueryController.text.length < 4) {
-            return Center(
-              child: Text('Type at least 4 characters to start the search.'),
-            );
+            return Center(child: Text('Type at least 4 characters to start the search.'));
           }
-
           if (state is SearchLoadingState) {
             return Center(child: CircularProgressIndicator());
           } else if (state is SearchLoadedState) {
             return ListView.builder(
               itemCount: state.repos.length,
               itemBuilder: (BuildContext context, int index) {
-                return GithubItem(state.repos[index]);
+                final repo = state.repos[index];
+                return GithubItem(
+                  repo: repo,
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => DetailsPage(repo: repo)),
+                    );
+                  },
+                );
               },
             );
           } else if (state is SearchErrorState) {
             return Center(child: Text(state.message));
           }
-          return Center(
-            child: Text('Type at least 4 characters to start the search.'),
-          );
+          return Center(child: Text('Type at least 4 characters to start the search.'));
         },
       ),
     );

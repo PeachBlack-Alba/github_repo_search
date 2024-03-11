@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'features/search/domain/repository/data_repository.dart';
-import 'features/search/presentation/pages/home.dart';
+import 'features/search/presentation/pages/home_page.dart';
 import 'features/search/presentation/bloc/repo_search_bloc.dart';
 
 void main() {

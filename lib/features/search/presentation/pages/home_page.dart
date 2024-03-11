@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:github_repo_search/features/search/presentation/pages/search.dart';
+import 'package:github_repo_search/features/detail/presentation/detail_page.dart';
+import 'package:github_repo_search/features/search/presentation/pages/search_page.dart';
 import 'package:github_repo_search/features/search/presentation/bloc/repo_search_bloc.dart';
 import 'package:github_repo_search/features/search/presentation/bloc/repo_search_event.dart';
 import 'package:github_repo_search/features/search/presentation/bloc/repo_search_state.dart';
-import 'item.dart';
+import 'github_item.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -54,7 +55,15 @@ class _HomeState extends State<Home> {
               child: ListView.builder(
                 itemCount: state.repos.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return GithubItem(state.repos[index]);
+                  final repo = state.repos[index];
+                  return GithubItem(
+                    repo: repo,
+                    onTap: () => Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => DetailsPage(repo: repo),
+                      ),
+                    ),
+                  );
                 },
               ),
             );

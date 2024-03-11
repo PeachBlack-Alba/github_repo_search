@@ -44,7 +44,7 @@ class Api {
     return RepoDataModel.mapJSONStringToList(jsonResponse['items']);
   }
 
-  static Future<Map<String, dynamic>?> _getJson(Uri uri) async { // Adjusted to allow null return
+  static Future<Map<String, dynamic>?> _getJson(Uri uri) async {
     try {
       final httpRequest = await _httpClient.getUrl(uri);
       final httpResponse = await httpRequest.close();
