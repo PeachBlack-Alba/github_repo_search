@@ -13,9 +13,13 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
+  freezed_annotation: ^2.4.1
   flutter_bloc: ^8.1.4
   http: ^0.13.3
   equatable: ^2.0.5
+  provider: ^6.1.2
+  url_launcher: ^6.2.1
+  date_format: ^2.0.5
 
 dev_dependencies:
   flutter_test:
@@ -24,6 +28,7 @@ dev_dependencies:
   mocktail: ^1.0.3
   lint: ^2.0.20
   import_sorter: ^4.6.0
+  freezed: ^2.4.7
 
 flutter:
   uses-material-design: true
