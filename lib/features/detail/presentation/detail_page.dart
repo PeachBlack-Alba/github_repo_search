@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:github_repo_search/core/utils/constants/app_strings.dart';
 import 'package:github_repo_search/features/detail/data/issue_data_model.dart';
 import 'package:github_repo_search/features/detail/domain/repository/details_page_repository.dart';
 import 'package:github_repo_search/features/search/data/repo_data_model.dart';
-import 'package:github_repo_search/utils/constants/app_strings.dart';
 
 class DetailsPage extends StatelessWidget {
   final RepoDataModel repo;

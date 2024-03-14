@@ -4,7 +4,7 @@ import 'dart:convert' show json, utf8;
 import 'dart:io';
 import 'dart:async';
 
-class Api {
+class GithubApiService {
   static final HttpClient _httpClient = HttpClient();
   static final String _url = 'api.github.com';
 

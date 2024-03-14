@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:github_repo_search/core/utils/constants/app_strings.dart';
 import 'package:github_repo_search/features/detail/presentation/detail_page.dart';
 import 'package:github_repo_search/features/search/presentation/pages/search_page.dart';
 import 'package:github_repo_search/features/search/presentation/bloc/repo_search_bloc.dart';
 import 'package:github_repo_search/features/search/presentation/bloc/repo_search_event.dart';
 import 'package:github_repo_search/features/search/presentation/bloc/repo_search_state.dart';
-import 'package:github_repo_search/utils/constants/app_strings.dart';
 import '../search/presentation/pages/github_item.dart';
 
 class Home extends StatefulWidget {
