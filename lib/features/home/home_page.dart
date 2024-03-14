@@ -6,7 +6,7 @@ import 'package:github_repo_search/features/search/presentation/bloc/repo_search
 import 'package:github_repo_search/features/search/presentation/bloc/repo_search_event.dart';
 import 'package:github_repo_search/features/search/presentation/bloc/repo_search_state.dart';
 import 'package:github_repo_search/utils/constants/app_strings.dart';
-import 'github_item.dart';
+import '../search/presentation/pages/github_item.dart';
 
 class Home extends StatefulWidget {
   @override
