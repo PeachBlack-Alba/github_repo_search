@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'core/utils/theme/app_theme.dart';
 import 'features/search/domain/repository/data_repository.dart';
-import 'features/search/presentation/pages/home_page.dart';
+import 'features/home/home_page.dart';
 import 'features/search/presentation/bloc/repo_search_bloc.dart';
 
 void main() {
@@ -19,9 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'GitHub Search',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: AppTheme.darkTheme,
       home: BlocProvider(
         create: (context) => RepoSearchBloc(DataRepository()),
         child: Home(),

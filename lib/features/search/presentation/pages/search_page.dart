@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:github_repo_search/core/utils/constants/app_strings.dart';
 import 'package:github_repo_search/features/detail/presentation/detail_page.dart';
 import 'package:github_repo_search/features/search/presentation/bloc/repo_search_bloc.dart';
 import 'package:github_repo_search/features/search/presentation/bloc/repo_search_event.dart';
 import 'package:github_repo_search/features/search/presentation/bloc/repo_search_state.dart';
 import 'package:github_repo_search/features/search/presentation/pages/github_item.dart';
 
-class SearchList extends StatefulWidget {
+class SearchPage extends StatefulWidget {
   @override
-  _SearchListState createState() => _SearchListState();
+  _SearchPageState createState() => _SearchPageState();
 }
 
-class _SearchListState extends State<SearchList> {
+class _SearchPageState extends State<SearchPage> {
   final TextEditingController _searchQueryController = TextEditingController();
 
   @override
@@ -44,9 +45,9 @@ class _SearchListState extends State<SearchList> {
           controller: _searchQueryController,
           autofocus: true,
           decoration: InputDecoration(
-            hintText: 'Search GitHub Repositories...',
+            hintText: AppStrings.searchHintText,
             border: InputBorder.none,
-            hintStyle: TextStyle(color: Colors.white30),
+            hintStyle: TextStyle(color: Colors.black),
           ),
           style: TextStyle(color: Colors.white, fontSize: 16.0),
         ),
@@ -59,7 +60,7 @@ class _SearchListState extends State<SearchList> {
         },
         builder: (context, state) {
           if (_searchQueryController.text.length < 4) {
-            return Center(child: Text('Type at least 4 characters to start the search.'));
+            return Center(child: Text(AppStrings.typeToSearch));
           }
           if (state is SearchLoadingState) {
             return Center(child: CircularProgressIndicator());
@@ -81,7 +82,7 @@ class _SearchListState extends State<SearchList> {
           } else if (state is SearchErrorState) {
             return Center(child: Text(state.message));
           }
-          return Center(child: Text('Type at least 4 characters to start the search.'));
+          return Center(child: Text(AppStrings.typeToSearch));
         },
       ),
     );
