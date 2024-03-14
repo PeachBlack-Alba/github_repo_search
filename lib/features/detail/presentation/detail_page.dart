@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:github_repo_search/features/detail/data/issue_data_model.dart';
 import 'package:github_repo_search/features/detail/domain/repository/details_page_repository.dart';
 import 'package:github_repo_search/features/search/data/repo_data_model.dart';
+import 'package:github_repo_search/utils/constants/app_strings.dart';
 
 class DetailsPage extends StatelessWidget {
   final RepoDataModel repo;
 
-  const DetailsPage({Key? key, required this.repo}) : super(key: key);
+  const DetailsPage({required this.repo, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +58,7 @@ class DetailsPage extends StatelessWidget {
                   } else {
                     return Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text('No open issues in this repository'),
+                      child: Text(AppStrings.noOpenIssues),
                     );
                   }
                 },
