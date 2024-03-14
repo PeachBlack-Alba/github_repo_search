@@ -18,7 +18,7 @@ An IDE (e.g., Android Studio, VSCode) with Flutter support.
 
 
 
-## Installation
+# Installation
 
 1.Clone the repo
 
@@ -36,7 +36,7 @@ An IDE (e.g., Android Studio, VSCode) with Flutter support.
 
 `flutter run`
 
-## Usage
+# Usage
 
 Use the search bar on the home screen to search for GitHub repositories. 
 Click on any repository from the list to view more detailed information about it. You can see open issues.
@@ -46,7 +46,10 @@ To run all unit tests, execute the following command in the terminal:
 
 `flutter test`
 
-# Built With
+![Alt Text](https://imgur.com/a/yCxpF3f)
+
+
+## Built With
 
 Flutter - The framework used
 Bloc - State management
