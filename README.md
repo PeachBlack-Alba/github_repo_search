@@ -46,7 +46,7 @@ To run all unit tests, execute the following command in the terminal:
 
 `flutter test`
 
-![Alt Text](https://imgur.com/a/n9igb4a)
+![Demo App](https://github.com/PeachBlack-Alba/github_repo_search/issues/9#issue-2186819651)
 
 ## Built With
 
