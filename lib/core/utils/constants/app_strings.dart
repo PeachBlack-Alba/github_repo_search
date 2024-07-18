@@ -1,4 +1,5 @@
 class AppStrings {
+  // Constants for UI strings to maintain consistency and manageability.
   static const appBarTitleHome = 'GitHub Repo Search';
   static const searchHintText = 'Search GitHub Repositories...';
   static const openIssues = 'Open Issues';

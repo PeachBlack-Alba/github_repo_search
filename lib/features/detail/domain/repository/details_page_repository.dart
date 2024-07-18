@@ -4,6 +4,7 @@ import 'dart:async';
 import 'package:http/http.dart' as http;
 
 class DetailsPageRepository {
+  // Fetches open issues from GitHub API for a specific repository.
   Future<List<Issue>> fetchOpenIssues(String owner, String name) async {
     final Uri url = Uri.parse(
         'https://api.github.com/repos/$owner/$name/issues?state=open');

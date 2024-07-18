@@ -18,12 +18,15 @@ void main() {
     });
 
     test('initial state is correct', () {
+      // Verifies that initial state of app is SearchInitialState
       expect(bloc.state, equals(SearchInitialState()));
     });
 
     blocTest<RepoSearchBloc, RepoSearchState>(
       'emits [SearchLoadingState, SearchLoadedState] on successful search query',
       build: () {
+        // Verifies that the bloc emits the SearchLoadingState followed
+        // by SearchLoadedState when a search is processed succesfully
         when(mockDataRepository.getRepositoriesWithSearchQuery(any))
             .thenAnswer((_) async => [
                   RepoDataModel(
@@ -45,10 +48,28 @@ void main() {
 
     blocTest<RepoSearchBloc, RepoSearchState>(
       'emits [SearchInitialState] on clear search',
+      // Verifies that the state goes back to SearchInitialState when the
+      // clearSearch event is emitted
       build: () => bloc,
       act: (bloc) => bloc.add(ClearSearch()),
       expect: () => [SearchInitialState()],
     );
+
+    blocTest<RepoSearchBloc, RepoSearchState>(
+      'emits [SearchLoadingState, SearchErrorState] on search query failure',
+      build: () {
+        // Verifies that SearchErrorState is emitted when the search query fails
+        when(mockDataRepository.getRepositoriesWithSearchQuery(any))
+            .thenThrow(Exception('Failed to fetch data'));
+        return bloc;
+      },
+      act: (bloc) => bloc.add(SearchQueryChanged('fail-query')),
+      expect: () => [
+        SearchLoadingState(),
+        isA<SearchErrorState>(),
+      ],
+    );
+
 
     tearDown(() {
       bloc.close();
